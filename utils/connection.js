@@ -1,16 +1,17 @@
-const sequelie = require('sequelize');
+const sequelize = require('sequelize');
 const userModel = require('../models/user');
 require('dotenv').config();
 
-const Connection = new sequelie(process.env.DBNAME, process.env.DBUSER, process.env.DBPASS, {
+
+const connection = new sequelize(process.env.DBNAME, process.env.DBUSER, process.env.DBPASS, {
     host: process.env.DBSERVER,
     dialect: process.env.DBDIALECT,
     port: process.env.DBPORT
 });
 
-const User = userModel(Connection);
+const User = userModel(connection);
 
-Connection.sync({force:false})
+connection.sync({force:false})
 .then(() => {
     console.info("Conectado a MYSQL");
 })
@@ -20,5 +21,5 @@ Connection.sync({force:false})
 
 module.exports = {
     User, 
-    Connection
+    connection
 }

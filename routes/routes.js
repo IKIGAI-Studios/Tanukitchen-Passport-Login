@@ -1,56 +1,57 @@
 const routes = require('express').Router();
 const passport = require('passport');
-const {User} = require('../utils/connection');
-const {genPassword} = require('../utils/passwordUtils');
+const {user} = require('../utils/connection');
+const {genPassword} = require('../utils/password');
 const {isAuth, isAdmin} = require('../utils/auth');
-var abc
 
-routes.get('/login', (req, res) => {
+routes.get('/', (req, res) => {
     res.render('login');
 });
 
-routes.get('/register', (req, res) => {
-    res.render('register');
-});
-
-routes.get('/protected', isAuth, (req, res) => {
-    res.render('protected');
-});
-
-routes.get('/admin', isAdmin, (req, res) => {
-    res.render('admin');
-});
-
-routes.get('/logout', (req, res, done) => {
-    req.logOut((e) => {return done(e)});
-    res.redirect('/login');
-});
-
 routes.post('/login', passport.authenticate('local', {
-    failureRedirect: '/login',
-    successRedirect: '/protected'
+    failureRedirect: '/',
+    successRedirect: '/protegida'
 }));
 
-routes.post('/register', (req, res) => {
-    var saltHash = genPassword(req.body.password);
-    var salt = saltHash.salt;
-    var hash = saltHash.hash;
+routes.get('/registro', (req, res) => {
+    res.render('registro');
+});
+
+routes.post('/registro', (req, res) => {
+    let saltHash = genPassword(req.body.password);
+    let salt = saltHash.salt;
+    let hash = saltHash.hash;
 
     req.body.salt = salt;
     req.body.hash = hash;
     req.body.password = "";
     req.body.admin = false;
 
-    User.create(req.body)
-    .then ((usr) => {
-        console.info(usr);
+    user.create(req.body)
+    .then((user) => {
+        console.info(user);
     })
-    .catch ((e) => {
-        console.error(`Error: $e`);
+    .catch((e) => {
+        console.info(`ERROR ${e}`);
     });
-
-    res.redirect('/login');
+    res.redirect('/');
 });
+
+routes.get('/protegida', isAuth, (req, res) => {
+    res.render('protegida');
+});
+
+routes.get('/admins', isAdmin, (req, res) => {
+    res.render('admins');
+});
+
+routes.get('/logout', (req, res, done) => {
+    req.logout((e) => {
+        return done(e);
+    });
+    res.redirect('/');
+});
+
 
 
 

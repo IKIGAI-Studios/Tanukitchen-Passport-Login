@@ -1,43 +1,46 @@
-let passport = require('passport');
-let localStrategy = require('passport-local').Strategy;
-let {User} = require('./connection');
-let {validarPassword} = require('./passwordUtils');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const usermodel = require('../models/user');
+const {User} = require('./connection');
+const {valPassword} = require('./password');
 
 customFields = {
     usernameField: 'username',
     passwordField: 'password'
 }
 
-let verifyCallback = (user, pass, done) => {
+let verifyCallback = (username, password, done) => {
     User.findOne({
         where: {
-            username: user
+            username: username
         }
     })
-    .then((usr) => {
-        if(!usr) return done(null, false);
-        let isValid = validarPassword(pass, usr.hash, usr.salt);
-        if(isValid) return done(null, usr);
-        else return done(null, false);
+    .then((user) => {
+        if(!user) return done(null, false);
+        let isValid = valPassword(password, user.hash, user.salt);
+
+        if(isValid) return done(null,user);
+        
+        return done(null, false);
     })
-    .catch((err) => {
-        return done(err);
+    .catch((e) => {
+        return done(e);
     });
 }
 
-let strategy = new localStrategy(customFields, verifyCallback);
+let strategy = new LocalStrategy(customFields, verifyCallback);
 passport.use(strategy);
 
-passport.serializeUser((usr, done) => {
-    done(null, usr.id);
+passport.serializeUser((user, done) => {
+    done(null, user.id);
 });
 
 passport.deserializeUser((userId, done) => {
     User.findByPk(userId)
-    .then((usr) => {
-        done(null, usr);
+    .then((user) => {
+        done(null, user);
     })
     .catch((e) => {
-        done(err);
+        done(e);
     })
 });

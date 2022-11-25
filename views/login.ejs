@@ -1,33 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
-</head>
-<body>
-  <div class="container m-5 form-signin text-center" style="width: 40%">
-    <form action="login" method="post">
-      <div class="container">
-        <label class="form-label" for="user">User</label>
-        <input type="text" name="username" id="username" class="form-control" />
-        
-      </div>
-    
-      <div class="container">
-        <label class="form-label" for="password">Password</label>
-        <input type="password" name="password" id="password" class="form-control" />
-        
-      </div>
-      <div>
-        <div class="container mt-3">
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-      </div>
-      </form>
-      <a href="/gAuth">Login con Google</a> <br>
-      <a href="/register">Registrate</a>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="username" id="username" placeholder="Usuario">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <button type="submit">Iniciar sesión</button>
+            <a href="/gAuth">Iniciar Sesion con Google</a>
+        </form>
+    </body>
 </html>
