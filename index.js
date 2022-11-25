@@ -1,6 +1,7 @@
 const routes = require('./routes/routes');
 const routesG = require('./routes/googleRoutes');
 const express = require('express');
+const path = require('path');
 var session = require('express-session');
 var passport = require('passport');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -8,6 +9,16 @@ var {Connection} = require('./utils/connection');
 
 require('dotenv').config();
 const app = express();
+
+app.use(
+    "/scss", 
+    express.static(path.join(__dirname, 'src/assets/scss'))
+)
+
+app.use(
+    "/js", 
+    express.static(path.join(__dirname, 'src/assets/js'))
+)
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
