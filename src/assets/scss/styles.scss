@@ -72,13 +72,17 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
     }
 }
 
+body{
+    width: 100%;
+}
+
 .tk-text{
     @include text-somatic();
     color: $tk-beige;
 }
 
 .tk-ani-grad{
-    --bg-size: 400%;
+    --bg-size: 300%;
     @include text-lexend();
     font-weight: bold;
     background: linear-gradient(90deg, $tk-green, $tk-violet, $tk-blue) 0 0 / var(--bg-size) 100%;
@@ -132,7 +136,7 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
 }
 
 .tk-form-btn{
-    color: $tk-beige;
+    color: $tk-darkblue;
     background: $tk-green;
     overflow: hidden;
     transform: translate(0);

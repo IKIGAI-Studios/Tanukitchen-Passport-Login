@@ -10958,13 +10958,17 @@ textarea.form-control-lg {
     background-position: var(--bg-size) 0;
   }
 }
+body {
+  width: 100%;
+}
+
 .tk-text {
   font-family: "somatic";
   color: #F2E7D5;
 }
 
 .tk-ani-grad {
-  --bg-size: 400%;
+  --bg-size: 300%;
   font-family: "Lexend-Deca";
   font-weight: bold;
   background: linear-gradient(90deg, #06BEB6, #4B6CB7, #48B1BF) 0 0/var(--bg-size) 100%;
@@ -11019,7 +11023,7 @@ textarea.form-control-lg {
 }
 
 .tk-form-btn {
-  color: #F2E7D5;
+  color: #272f3f;
   background: #06BEB6;
   overflow: hidden;
   transform: translate(0);
