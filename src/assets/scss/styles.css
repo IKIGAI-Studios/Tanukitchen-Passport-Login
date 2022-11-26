@@ -10933,21 +10933,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-@font-face {
-  font-family: "Lexend-Deca", monospace;
-  src: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf), url(https://fonts.google.com/specimen/Lexend+Deca) format("ttf");
-  font-style: normal;
-}
-@font-face {
-  font-family: "lexend-bold";
-  src: url(../../fonts/lexend-deca/LexendDeca-Bold.ttf) format("ttf");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "somatic";
-  src: url(../../fonts/Somatic-Rounded.otf);
-  font-weight: 300;
-}
 @-webkit-keyframes move-bg {
   to {
     background-position: var(--bg-size) 0;
@@ -10958,18 +10943,14 @@ textarea.form-control-lg {
     background-position: var(--bg-size) 0;
   }
 }
-body {
-  width: 100%;
-}
-
 .tk-text {
-  font-family: "somatic";
+  font-family: "lexend-deca";
   color: #F2E7D5;
 }
 
 .tk-ani-grad {
   --bg-size: 300%;
-  font-family: "Lexend-Deca";
+  font-family: "lexend-deca";
   font-weight: bold;
   background: linear-gradient(90deg, #06BEB6, #4B6CB7, #48B1BF) 0 0/var(--bg-size) 100%;
   color: transparent;
@@ -10980,7 +10961,7 @@ body {
 }
 
 .tk-link {
-  font-family: "Lexend-Deca";
+  font-family: "lexend-deca";
   color: #06BEB6;
   font-weight: bold;
   text-decoration: none;
@@ -11002,14 +10983,14 @@ body {
 }
 
 .tk-form-label {
-  font-family: "Lexend-Deca";
+  font-family: "lexend-deca";
   color: #F2E7D5;
   font-size: 1rem;
   font-weight: normal;
 }
 
 .tk-form-input {
-  font-family: "Lexend-Deca";
+  font-family: "lexend-deca";
   margin-bottom: 1rem;
   background-color: #F2E7D5;
   border: 3px solid #272f3f;
@@ -11022,12 +11003,22 @@ body {
   background-color: #F2E7D5;
 }
 
+.tk-form-chkbx {
+  border: 3px solid #F2E7D5;
+  background-color: #F2E7D5;
+}
+
+.tk-form-chkbx:checked {
+  border: 3px solid #4B6CB7;
+  background-color: #4B6CB7;
+}
+
 .tk-form-btn {
   color: #272f3f;
   background: #06BEB6;
   overflow: hidden;
   transform: translate(0);
-  font-family: "Lexend-Deca";
+  font-family: "lexend-deca";
   font-weight: bold;
 }
 
@@ -11046,4 +11037,49 @@ body {
 
 .tk-form-btn:hover::before {
   transform: scaleX(1) scaleY(1);
+}
+
+.usr-pfp {
+  margin: 5rem;
+  border: 3px solid #06BEB6;
+  border-radius: 100%;
+  height: 15rem;
+  width: auto;
+}
+
+.tk-usr-label {
+  font-family: "lexend-deca";
+  color: #F2E7D5;
+  padding-left: 0;
+  width: 10rem;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.tk-usr-input {
+  font-family: "lexend-deca";
+  color: #272f3f;
+  width: 40%;
+  margin-bottom: 3rem;
+  background-color: #F2E7D5;
+  border: 3px solid #272f3f;
+  border-radius: 15px;
+  transition: border 0.4s ease-in-out;
+}
+
+.tk-usr-input:focus {
+  border: 3px solid #48B1BF;
+  background-color: #F2E7D5;
+}
+
+.tk-usr-input:disabled {
+  background-color: #272f3f;
+  border: 2px solid #4B6CB7;
+  color: #F2E7D5;
+}
+
+.tk-green-line {
+  width: 100%;
+  border: 3px solid #06BEB6;
+  border-radius: 10px;
 }/*# sourceMappingURL=styles.css.map */
