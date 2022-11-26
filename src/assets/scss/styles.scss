@@ -1,0 +1,14 @@
+$tk-darkblue: #393E46;
+$tk-green: #6D9886;
+$tk-beige: #F2E7D5;
+
+$tanukitchen-colors: (
+    "tk-darkblue": $tk-darkblue,
+    "tk-green": $tk-green,
+    "tk-beige": $tk-beige
+);
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// mergin maps 
+$theme-colors: map-merge($theme-colors, $tanukitchen-colors);
