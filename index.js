@@ -25,6 +25,7 @@ app.use(
     express.static(path.join(__dirname, 'src/imgs'))
 )
 
+
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 
