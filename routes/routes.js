@@ -14,7 +14,8 @@ routes.get('/register', (req, res) => {
 });
 
 routes.get('/protected', isAuth, (req, res) => {
-    res.render('protected');
+    usr = req.user;
+    res.render('protectedLocal', {usr});
 });
 
 routes.get('/admin', isAdmin, (req, res) => {

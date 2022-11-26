@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanukitchen</title>
+    <link href="../../scss/styles.css" rel="stylesheet" type="text/css"/>
+    <style>
+        @font-face {
+            font-family: 'lexend-deca';
+            src: url(../../fonts/LexendDeca-Regular.ttf);
+        }                  
+        @font-face {
+            font-family: 'somatic';
+            src: url(../../fonts/Somatic-Rounded.otf);
+        }
+    </style>
+</head>
+    <!-- Image and text -->
+<nav class="navbar navbar-light">
+    <a class="navbar-brand px-5 " href="#">
+        <img src="../../img/light-tanukitchen-horizontal.png" 
+        height="60" width="auto" alt="Tanukitchen Logo"
+        class="d-inline-block align-top">
+    </a>
+</nav>
+<body>
+
+<div class="container pt-5">
+    <h1 class="tk-text">My profile <p class="lead">Local</p></h1> 
+    <hr class="tk-green-line">
+</div>
+
+<div class="d-flex justify-content-center align-items-center pt-3">
+    <div class="col-sm-5">
+        <div class="d-flex justify-content-center">
+            <img class="usr-pfp" src="../../img/light-tanukitchen-logo.png">
+        </div>
+        <div class="d-flex justify-content-center">
+            <label class="form-label tk-usr-label mt-2" for="username">ID</label>
+            <input type="text" name="username" id="username" class="form-control tk-usr-input" disabled value="<%= usr.id %>"/>
+        </div>
+    </div>
+
+    <div class="col-sm-5">
+      
+        <div class="row">
+          <label class="form-label tk-usr-label" for="username">Username</label>
+          <input type="text" name="username" id="username" class="form-control tk-usr-input" disabled value="<%= usr.username %>"/>
+        </div>
+
+        <div class="row">
+          <label class="form-label tk-usr-label" for="admin">Admin</label>
+          <input type="text" name="admin" id="admin" class="form-control tk-usr-input" disabled value="<%= usr.admin %>"/>
+        </div>
+  
+        <div class="row">
+          <label class="form-label tk-usr-label" for="createdAt">Created At</label>
+          <input type="date" name="createdAt" id="createdAt" class="form-control tk-usr-input" disabled value="<%= usr.createdAt.substr(0, 10) %>"/>
+        </div>
+
+        <div class="row">
+            <label class="form-label tk-usr-label" for="updatedAt">Updated At</label>
+            <input type="date" name="updatedAt" id="updatedAt" class="form-control tk-usr-input" disabled value="<%= usr.updatedAt.substr(0, 10) %>"/>
+          </div>
+
+        <div class="row">
+          <button href="/logout" class="btn tk-form-btn" onclick="window.location.href = '/logout'" style="width: 67%">Logout</button>
+        </div>
+    </div>
+    
+  </div> 
+  
+
+  <script src="../../../src/assets/js/main.js" type="module"></script>
+</body>
+</html>

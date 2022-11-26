@@ -7,12 +7,13 @@ routes.get('/', passport.authenticate('google', {
 }));
 
 routes.get('/callback', passport.authenticate('google', {
-    successRedirect: '/gAtuh/callback/success',
+    successRedirect: '/gAuth/callback/success',
     failureRedirect: '/gAuth/callback/failure'
 }));
 
 routes.get('/callback/success', (req, res) => {
-    res.send(req.user);
+    usr = req.user;
+    res.render('protectedG', {usr});
 });
 
 routes.get('/callback/failure', (req, res) => {
