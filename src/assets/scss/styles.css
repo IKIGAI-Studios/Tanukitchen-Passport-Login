@@ -48,16 +48,16 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg-rgb: 57, 62, 70;
+  --bs-body-bg-rgb: 39, 47, 63;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #393E46;
+  --bs-body-bg: #272f3f;
   --bs-border-width: 1px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -604,7 +604,7 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #393E46;
+  background-color: #272f3f;
   border: 1px solid var(--bs-border-color);
   border-radius: 0.375rem;
   max-width: 100%;
@@ -1998,7 +1998,7 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #393E46;
+  background-color: #272f3f;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   -webkit-appearance: none;
@@ -2020,7 +2020,7 @@ progress {
 }
 .form-control:focus {
   color: #212529;
-  background-color: #393E46;
+  background-color: #272f3f;
   border-color: #86b7fe;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
@@ -2189,7 +2189,7 @@ textarea.form-control-lg {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #393E46;
+  background-color: #272f3f;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
@@ -2266,7 +2266,7 @@ textarea.form-control-lg {
   height: 1em;
   margin-top: 0.25em;
   vertical-align: top;
-  background-color: #393E46;
+  background-color: #272f3f;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2378,10 +2378,10 @@ textarea.form-control-lg {
   outline: 0;
 }
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #393E46, 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 1px #272f3f, 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #393E46, 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 1px #272f3f, 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 .form-range::-moz-focus-outer {
   border: 0;
@@ -3699,8 +3699,8 @@ textarea.form-control-lg {
   --bs-nav-tabs-border-radius: 0.375rem;
   --bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
   --bs-nav-tabs-link-active-color: #495057;
-  --bs-nav-tabs-link-active-bg: #393E46;
-  --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #393E46;
+  --bs-nav-tabs-link-active-bg: #272f3f;
+  --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #272f3f;
   border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
 }
 .nav-tabs .nav-link {
@@ -4384,7 +4384,7 @@ textarea.form-control-lg {
 
 .accordion {
   --bs-accordion-color: #212529;
-  --bs-accordion-bg: #393E46;
+  --bs-accordion-bg: #272f3f;
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: 1px;
@@ -5603,7 +5603,7 @@ textarea.form-control-lg {
   display: block;
   padding: var(--bs-tooltip-arrow-height);
   margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
+  font-family: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5713,7 +5713,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: var(--bs-font-sans-serif);
+  font-family: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10934,9 +10934,9 @@ textarea.form-control-lg {
   }
 }
 @font-face {
-  font-family: "lexend-reg";
-  src: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf), url(https://github.com/googlefonts/lexend/blob/main/fonts/lexend/ttf/Lexend-Regular.ttf) format("ttf");
-  font-weight: normal;
+  font-family: "Lexend-Deca", monospace;
+  src: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf), url(https://fonts.google.com/specimen/Lexend+Deca) format("ttf");
+  font-style: normal;
 }
 @font-face {
   font-family: "lexend-bold";
@@ -10944,34 +10944,102 @@ textarea.form-control-lg {
   font-weight: bold;
 }
 @font-face {
-  font-family: "lexend-med";
-  src: url(../../fonts/lexend-deca/LexendDeca-Medium.ttf) format("ttf");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "lexend-light";
-  src: url(../../fonts/lexend-deca/LexendDeca-Light.ttf) format("ttf");
-  font-weight: lighter;
-}
-@font-face {
   font-family: "somatic";
   src: url(../../fonts/Somatic-Rounded.otf);
   font-weight: 300;
 }
+@-webkit-keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}
+.tk-text {
+  font-family: "somatic";
+  color: #F2E7D5;
+}
+
+.tk-ani-grad {
+  --bg-size: 400%;
+  font-family: "Lexend-Deca";
+  font-weight: bold;
+  background: linear-gradient(90deg, #06BEB6, #4B6CB7, #48B1BF) 0 0/var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-animation: move-bg 8s infinite linear;
+          animation: move-bg 8s infinite linear;
+}
+
+.tk-link {
+  font-family: "Lexend-Deca";
+  color: #06BEB6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tk-link:hover {
+  --bg-size: 400%;
+  font-weight: bold;
+  background: linear-gradient(270deg, #06BEB6, #4B6CB7) 0 0/var(--bg-size) 100%;
+  background-clip: text;
+  -webkit-animation: move-bg 8s infinite linear;
+          animation: move-bg 8s infinite linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .tk-form {
-  margin: 1rem;
+  margin-left: 4rem;
 }
 
 .tk-form-label {
-  font-family: "lexend-reg";
-  margin-bottom: 1rem;
+  font-family: "Lexend-Deca";
   color: #F2E7D5;
   font-size: 1rem;
   font-weight: normal;
 }
 
 .tk-form-input {
-  font-family: "lexend-reg";
+  font-family: "Lexend-Deca";
+  margin-bottom: 1rem;
   background-color: #F2E7D5;
+  border: 3px solid #272f3f;
   border-radius: 15px;
+  transition: border 0.4s ease-in-out;
+}
+
+.tk-form-input:focus {
+  border: 3px solid #48B1BF;
+  background-color: #F2E7D5;
+}
+
+.tk-form-btn {
+  color: #F2E7D5;
+  background: #06BEB6;
+  overflow: hidden;
+  transform: translate(0);
+  font-family: "Lexend-Deca";
+  font-weight: bold;
+}
+
+.tk-form-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(#06BEB6, #4B6CB7);
+  transition: 0.5s ease;
+  transform: scaleX(0);
+}
+
+.tk-form-btn:hover::before {
+  transform: scaleX(1) scaleY(1);
 }/*# sourceMappingURL=styles.css.map */

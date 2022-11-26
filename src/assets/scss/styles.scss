@@ -1,19 +1,24 @@
 // tanukitchen colors
-$tk-darkblue: #393E46;
-$tk-green: #6D9886;
+$tk-darkblue: #272f3f;
+$tk-violet: #4B6CB7;
+$tk-green: #06BEB6;
+$tk-blue: #48B1BF;
 $tk-beige: #F2E7D5;
 
 // tanukitchen map
 $tanukitchen-colors: (
     "tk-darkblue": $tk-darkblue,
     "tk-green": $tk-green,
-    "tk-beige": $tk-beige
+    "tk-beige": $tk-beige,
+    "tk-blue": $tk-blue,
+    "tk-violet": $tk-violet
 );
 
 // -- overriding variables --
 $body-bg: $tk-darkblue;
+$font-family-base: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf);
 
-// importing bustra
+// importing stuff
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
 // mergin maps 
@@ -22,30 +27,15 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
 // fonts lexend deca
 
 @font-face {
-    font-family: 'lexend-reg';
-    src: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf), 
-    url(https://github.com/googlefonts/lexend/blob/main/fonts/lexend/ttf/Lexend-Regular.ttf) 
-    format('ttf');
-    font-weight: normal;
+    font-family: 'Lexend-Deca', monospace;
+    src: url(../../fonts/lexend-deca/LexendDeca-Regular.ttf), url(https://fonts.google.com/specimen/Lexend+Deca) format('ttf');
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'lexend-bold';
     src: url(../../fonts/lexend-deca/LexendDeca-Bold.ttf) format('ttf');
     font-weight: bold;
-}
-
-@font-face {
-    font-family: 'lexend-med';
-    src: url(../../fonts/lexend-deca/LexendDeca-Medium.ttf) format('ttf');
-    font-weight: 500;
-}
-
-
-@font-face {
-    font-family: 'lexend-light';
-    src: url(../../fonts/lexend-deca/LexendDeca-Light.ttf) format('ttf');
-    font-weight: lighter;
 }
 
 // font somatic rounded
@@ -65,20 +55,62 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
 //
 
 @mixin text-lexend{
-    font-family: 'lexend-reg';
+    font-family: 'Lexend-Deca';
 }
 
 @mixin text-somatic {
     font-family: 'somatic';
 }
 
+//
+// animations
+// 
+
+@keyframes move-bg {
+    to{
+        background-position: var(--bg-size) 0;
+    }
+}
+
+.tk-text{
+    @include text-somatic();
+    color: $tk-beige;
+}
+
+.tk-ani-grad{
+    --bg-size: 400%;
+    @include text-lexend();
+    font-weight: bold;
+    background: linear-gradient(90deg, $tk-green, $tk-violet, $tk-blue) 0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: move-bg 8s infinite linear;
+}
+
+.tk-link{
+    @include text-lexend();
+    color: $tk-green;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tk-link:hover{
+    --bg-size: 400%;
+    font-weight: bold;
+    background: linear-gradient(270deg, $tk-green, $tk-violet) 0 0 / var(--bg-size) 100%;
+    background-clip: text;
+    animation: move-bg 8s infinite linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
 .tk-form{
-    margin: 1rem;
+    margin-left: 4rem;
 }
 
 .tk-form-label{
     @include text-lexend(); 
-    margin-bottom: 1rem;
     color: $tk-beige;
     font-size: 1rem;
     font-weight: normal;
@@ -86,6 +118,42 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
 
 .tk-form-input{
     @include text-lexend();
+    margin-bottom: 1rem;
     background-color: $tk-beige;
+    border: 3px solid $tk-darkblue;
     border-radius: 15px;
+    transition: border 0.4s ease-in-out;
 }
+
+.tk-form-input:focus{
+    border: 3px solid $tk-blue;
+    background-color: $tk-beige;
+
+}
+
+.tk-form-btn{
+    color: $tk-beige;
+    background: $tk-green;
+    overflow: hidden;
+    transform: translate(0);
+    @include text-lexend();
+    font-weight: bold;
+}
+
+.tk-form-btn::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient( $tk-green, $tk-violet); 
+    transition: 0.5s ease;
+    transform: scaleX(0);
+}
+
+.tk-form-btn:hover::before{
+    transform: scaleX(1) scaleY(1);
+}
+
