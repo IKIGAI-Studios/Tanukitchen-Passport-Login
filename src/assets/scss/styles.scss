@@ -231,7 +231,6 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
 .tk-btn-panel{
     color: $tk-darkblue;
     background: $tk-blue;
-    overflow: hidden;
     @include text-lexend();
     font-weight: bold;
     padding: .5rem;
