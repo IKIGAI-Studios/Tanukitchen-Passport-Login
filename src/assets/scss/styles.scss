@@ -172,20 +172,89 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
     border: 3px solid $tk-darkblue;
     border-radius: 15px;
     transition: border 0.4s ease-in-out;
-}
 
-.tk-usr-input:focus{
-    border: 3px solid $tk-blue;
-    background-color: $tk-beige;
-}
+    &:focus{
+        border: 3px solid $tk-blue;
+        background-color: $tk-beige;
+    }
 
-.tk-usr-input:disabled{
-    background-color: $tk-darkblue;
-    border: 2px solid $tk-violet;
-    color: $tk-beige;}
+    &:disabled{
+        background-color: $tk-darkblue;
+        border: 2px solid $tk-violet;
+        color: $tk-beige;
+    }
+}
 
 .tk-green-line{
     width: 100%;
     border: 3px solid $tk-green;
     border-radius: 10px;
     }
+
+////
+/// CONTROL PANEL
+/// 
+
+.modulos, .consola{
+    padding: 3rem;
+    margin: 2rem;
+    border: 2px solid $tk-green;
+    border-radius: 3rem;
+    box-shadow: rgba(7, 3, 31, 0.534) 0px 5px 15px;
+}
+
+#tConsole{
+    overflow: auto;
+    max-height: 60em; 
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: small;           
+    color: $tk-beige;
+    &:focus {
+        border: none;
+    }
+
+    &:active {
+        border: none;
+    }
+}
+
+.tk-showData{
+    padding: 1rem;
+    @include text-lexend();
+    color: $tk-beige;
+    background-color: $tk-darkblue;
+    margin: 1rem;
+    border-left: 2px solid $tk-violet;
+    box-shadow: rgba(7, 3, 31, 0.534) 0px 4px 6px -1px, rgba(7, 3, 31, 0.534) 0px 2px 4px -1px;   
+}
+
+.tk-btn-panel{
+    color: $tk-darkblue;
+    background: $tk-blue;
+    overflow: hidden;
+    @include text-lexend();
+    font-weight: bold;
+    padding: .5rem;
+    border: none;
+    border-radius: 1rem;
+    margin: 0 0 1rem 2rem; 
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover{
+     background-color: $tk-violet;
+     color: $tk-beige !important;   
+    }
+}
+
+.tk-cli{
+    @include text-lexend();
+    color: $tk-darkblue;
+    background-color: $tk-beige;
+    border-radius: 2rem;
+    transition: border 0.4s ease-in-out;
+
+    &:focus{
+        border: 3px solid $tk-blue;
+        background-color: $tk-beige;
+    }
+}

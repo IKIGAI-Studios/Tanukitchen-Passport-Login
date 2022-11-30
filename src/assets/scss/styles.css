@@ -11066,12 +11066,10 @@ textarea.form-control-lg {
   border-radius: 15px;
   transition: border 0.4s ease-in-out;
 }
-
 .tk-usr-input:focus {
   border: 3px solid #48B1BF;
   background-color: #F2E7D5;
 }
-
 .tk-usr-input:disabled {
   background-color: #272f3f;
   border: 2px solid #4B6CB7;
@@ -11082,4 +11080,65 @@ textarea.form-control-lg {
   width: 100%;
   border: 3px solid #06BEB6;
   border-radius: 10px;
+}
+
+.modulos, .consola {
+  padding: 3rem;
+  margin: 2rem;
+  border: 2px solid #06BEB6;
+  border-radius: 3rem;
+  box-shadow: rgba(7, 3, 31, 0.534) 0px 5px 15px;
+}
+
+#tConsole {
+  overflow: auto;
+  max-height: 60em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
+  color: #F2E7D5;
+}
+#tConsole:focus {
+  border: none;
+}
+#tConsole:active {
+  border: none;
+}
+
+.tk-showData {
+  padding: 1rem;
+  font-family: "lexend-deca";
+  color: #F2E7D5;
+  background-color: #272f3f;
+  margin: 1rem;
+  border-left: 2px solid #4B6CB7;
+  box-shadow: rgba(7, 3, 31, 0.534) 0px 4px 6px -1px, rgba(7, 3, 31, 0.534) 0px 2px 4px -1px;
+}
+
+.tk-btn-panel {
+  color: #272f3f;
+  background: #48B1BF;
+  overflow: hidden;
+  font-family: "lexend-deca";
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  margin: 0 0 1rem 2rem;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.tk-btn-panel:hover {
+  background-color: #4B6CB7;
+  color: #F2E7D5 !important;
+}
+
+.tk-cli {
+  font-family: "lexend-deca";
+  color: #272f3f;
+  background-color: #F2E7D5;
+  border-radius: 2rem;
+  transition: border 0.4s ease-in-out;
+}
+.tk-cli:focus {
+  border: 3px solid #48B1BF;
+  background-color: #F2E7D5;
 }/*# sourceMappingURL=styles.css.map */
