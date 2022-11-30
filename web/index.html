@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <style>
+            div {
+                border: solid 1px #000000;
+            }
+        </style>
+        <title>Tanukitchen Control Panel</title>
+    </head>
+    <body>
+        <header></header>
+
+        <div class="row">
+            <div class="modulos col-6">
+                <h5>Fecha</h5>
+                <div id="date-picker">
+                    <input type="date" id="date" class="form-control date">
+                </div>
+                <h5>Temperatura ambiental</h5>
+                <div id="env_temp">Recopilando datos...</div>
+
+                <h5>Nivel de humo</h5>
+                <div><p id="smoke">Recopilando datos...</p></div>
+
+                <h5>Nivel de luminosidad</h5>
+                <div><p id="brightness">Recopilando datos...</p></div>
+
+                <h5>Estufa</h5>
+                <div id="stove"></div>
+                <button id="btnStove">Encender</button>
+
+                <h5>Horno</h5>
+                <div id="oven"></div>
+                <button id="btnOven">Encender</button>
+
+                <h5>Báscula</h5>
+                <div id="weight"></div>
+                <button id="btnWeight">Encender</button>
+
+                <h5>Luces</h5>
+                <div id="light">Recopilando datos...</div>
+                <button id="btnLight">Encender</button>
+
+                <h5>Extractor de humo</h5>
+                <div id="extract"></div>
+                <button id="btnExtract">Extraer</button>
+
+                <h5>Paro de emergencia</h5>
+                <div><button id="btnStop">Parar</button></div>
+            </div>
+            <div class="consola col-6">
+                <div id="tConsole" style="overflow: auto; max-height: 60em; font-family: 'Courier New', Courier, monospace; font-size: small;" contenteditable></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <form action="#" id="formConsole">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Command" id="inpConsole" autocomplete="off">
+                        <button class="btn" id="btnConsole" type="submit">Enviar</button><button class="btn" id="btnClear">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="module" src="js/script.js"></script>
+    </body>
+</html>

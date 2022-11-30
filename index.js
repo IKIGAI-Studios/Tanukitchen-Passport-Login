@@ -55,6 +55,7 @@ require('./utils/passport');
 require('./utils/googlePassport');
 app.use('/', routes);
 app.use('/gAuth', routesG);
+app.use('/web', express.static(path.join(__dirname, '/web')));
 
 PORT = process.env.PORT;
 app.listen(PORT, () => {
