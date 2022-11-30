@@ -17,9 +17,17 @@ routes.get('/protected', isAuth, (req, res) => {
     usr = req.user;
     res.render('protectedLocal', {usr});
 });
-
-routes.get('/admin', isAdmin, (req, res) => {
-    res.render('admin');
+                        //isAdmin,
+routes.get('/admin_view',  (req, res) => {
+    res.render('admin_view');
+});
+                                // isAdmin, 
+routes.get('/admin_view_products', (req, res) => {
+    res.render('admin_view_products');
+});
+                            // isAdmin, 
+routes.get('/admin_view_users', (req, res) => {
+    res.render('admin_view_users');
 });
 
 routes.get('/logout', (req, res, done) => {

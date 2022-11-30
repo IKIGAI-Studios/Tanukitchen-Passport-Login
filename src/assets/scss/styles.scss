@@ -226,6 +226,11 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
     margin: 1rem;
     border-left: 2px solid $tk-violet;
     box-shadow: rgba(7, 3, 31, 0.534) 0px 4px 6px -1px, rgba(7, 3, 31, 0.534) 0px 2px 4px -1px;   
+    &:hover{
+        color: $tk-blue;
+        background-color: #1f242e;
+        cursor:default;
+    }
 }
 
 .tk-btn-panel{
@@ -257,3 +262,25 @@ $theme-colors: map-merge($theme-colors, $tanukitchen-colors);
         background-color: $tk-beige;
     }
 }
+
+.tk-modal{
+    background-color: $tk-darkblue;
+}
+
+.tk-card{
+    background-color: $tk-darkblue;
+    border: 2px solid $tk-blue;
+    box-shadow: rgba(7, 3, 31, 0.534) 0px 4px 6px -1px, rgba(7, 3, 31, 0.534) 0px 2px 4px -1px;   
+}
+
+thead{
+    @include text-lexend();
+    color: $tk-violet;
+    font-weight: bold;
+    border-style: none;
+}
+
+tbody, td, th, table{
+    border-style: none !important;
+}
+

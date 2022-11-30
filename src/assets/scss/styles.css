@@ -11113,6 +11113,11 @@ textarea.form-control-lg {
   border-left: 2px solid #4B6CB7;
   box-shadow: rgba(7, 3, 31, 0.534) 0px 4px 6px -1px, rgba(7, 3, 31, 0.534) 0px 2px 4px -1px;
 }
+.tk-showData:hover {
+  color: #48B1BF;
+  background-color: #1f242e;
+  cursor: default;
+}
 
 .tk-btn-panel {
   color: #272f3f;
@@ -11140,4 +11145,25 @@ textarea.form-control-lg {
 .tk-cli:focus {
   border: 3px solid #48B1BF;
   background-color: #F2E7D5;
+}
+
+.tk-modal {
+  background-color: #272f3f;
+}
+
+.tk-card {
+  background-color: #272f3f;
+  border: 2px solid #48B1BF;
+  box-shadow: rgba(7, 3, 31, 0.534) 0px 4px 6px -1px, rgba(7, 3, 31, 0.534) 0px 2px 4px -1px;
+}
+
+thead {
+  font-family: "lexend-deca";
+  color: #4B6CB7;
+  font-weight: bold;
+  border-style: none;
+}
+
+tbody, td, th, table {
+  border-style: none !important;
 }/*# sourceMappingURL=styles.css.map */
