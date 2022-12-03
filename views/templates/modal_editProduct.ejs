@@ -9,21 +9,25 @@
         </div>
         <div class="modal-body">
 
-          <form action="" method="">
+          <form action="upd_product" method="POST">
+            <div class="container">
+                <label class="form-label tk-form-label" for="id">Id of the product</label>
+                <input type="text" name="id" id="edt_id" class="form-control tk-form-input" readonly/>
+            </div>
 
             <div class="container">
-                <label class="form-label tk-form-label" for="product">Name of the product</label>
-                <input type="text" name="product" id="product" class="form-control tk-form-input" value="prodoct"/>
+                <label class="form-label tk-form-label" for="name">Name of the product</label>
+                <input type="text" name="name" id="edt_name" class="form-control tk-form-input"/>
             </div>
             
             <div class="container">
                 <label class="form-label tk-form-label" for="description">Description</label>
-                <input type="text" name="description" id="description" class="form-control tk-form-input" value="descripchon"/>
+                <input type="text" name="description" id="edt_description" class="form-control tk-form-input"/>
             </div>
             
             <div class="container">
                 <label class="form-label tk-form-label" for="price">Price</label>
-                <input type="number" name="price" id="price" class="form-control tk-form-input" value="69"/>
+                <input type="number" step="0.01" name="price" id="edt_price" class="form-control tk-form-input"/>
             </div>
 
         </div>

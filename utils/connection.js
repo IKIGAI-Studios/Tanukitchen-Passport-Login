@@ -1,5 +1,6 @@
 const sequelie = require('sequelize');
 const userModel = require('../models/user');
+const productModel = require('../models/product');
 require('dotenv').config();
 
 const Connection = new sequelie(process.env.DBNAME, process.env.DBUSER, process.env.DBPASS, {
@@ -9,6 +10,7 @@ const Connection = new sequelie(process.env.DBNAME, process.env.DBUSER, process.
 });
 
 const User = userModel(Connection);
+const Product = productModel(Connection);
 
 Connection.sync({force:false})
 .then(() => {
@@ -20,5 +22,6 @@ Connection.sync({force:false})
 
 module.exports = {
     User, 
+    Product,
     Connection
 }

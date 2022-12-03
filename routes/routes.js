@@ -1,8 +1,9 @@
 const routes = require('express').Router();
 const passport = require('passport');
-const {User} = require('../utils/connection');
+const {User, Product} = require('../utils/connection');
 const {genPassword} = require('../utils/passwordUtils');
 const {isAuth, isAdmin} = require('../utils/auth');
+const product = require('../models/product');
 var abc
 
 routes.get('/login', (req, res) => {
@@ -14,20 +15,37 @@ routes.get('/register', (req, res) => {
 });
 
 routes.get('/protected', isAuth, (req, res) => {
-    usr = req.user;
-    res.render('protectedLocal', {usr});
+    let usr = req.user;
+    usr.admin ? res.redirect('admin_view') : res.render('protectedLocal', {usr});
 });
                         //isAdmin,
-routes.get('/admin_view',  (req, res) => {
-    res.render('admin_view');
+routes.get('/admin_view', isAdmin, (req, res) => {
+    let usr = req.user;
+    res.render('admin_view', {usr});
 });
                                 // isAdmin, 
-routes.get('/admin_view_products', (req, res) => {
-    res.render('admin_view_products');
+routes.get('/admin_view_products', isAdmin, (req, res) => {
+    Product.findAll({
+        where: {
+            active: true
+        }
+    })
+    .then((products) => {
+        products.lenght != 0 ? res.render('admin_view_products', {products}) : res.send('No existen productos');
+    })
+    .catch((e) => {
+        res.send(`Error: ${e}`);
+    })
 });
-                            // isAdmin, 
-routes.get('/admin_view_users', (req, res) => {
-    res.render('admin_view_users');
+                           
+routes.get('/admin_view_users', isAdmin, (req, res) => {
+    User.findAll()
+    .then((users) => {
+        users.lenght != 0 ? res.render('admin_view_users', {users}) : res.send('No existen usuarios');
+    })
+    .catch((e) => {
+        res.send(`Error: ${e}`);
+    })
 });
 
 routes.get('/logout', (req, res, done) => {
@@ -55,12 +73,72 @@ routes.post('/register', (req, res) => {
         console.info(usr);
     })
     .catch ((e) => {
-        console.error(`Error: $e`);
+        console.error(`Error: ${e}`);
     });
 
     res.redirect('/login');
 });
 
+routes.post('/new_product', (req, res) => {
+    req.body.active = true;
+    Product.create(req.body)
+    .then ((prod) => {
+        res.redirect('/admin_view_products');
+    })
+    .catch ((e) => {
+        console.error(`Error: ${e}`);
+    });
+});
 
+routes.post('/upd_product', (req, res) => {
+    Product.update(req.body, {
+            where: {
+                id: req.body.id
+            }
+        })
+    .then (() => {
+        res.redirect('/admin_view_products');
+    })
+    .catch ((e) => {
+        console.error(`Error: ${e}`);
+    });
+});
+
+routes.post('/upd_user', (req, res) => {
+    req.body.admin == 'on' ? req.body.admin = true : req.body.admin = false;
+    User.update(req.body, {
+            where: {
+                id: req.body.id
+            }
+        })
+    .then (() => {
+        res.redirect('/admin_view_users');
+    })
+    .catch ((e) => {
+        console.error(`Error: ${e}`);
+    });
+});
+
+routes.get('/remove_product/:id', (req, res) => {
+    req.body.active = false;
+    console.table(req.body);
+    Product.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(() => {
+        res.redirect('../admin_view_products');
+    })
+    .catch((e) => {
+        console.error(`Error: ${e}`);
+    })
+});
+
+//Agregar remove user
+
+//Agregar add user
+
+//Agregar boton de logout
 
 module.exports = routes;

@@ -19,30 +19,32 @@
                 <table class="table">
                     <thead>
                         <th>ID</th>
-                        <th>Full Name</th>
                         <th>Username</th>
-                        <th>Email</th>
+                        <th>Admin</th>
                     </thead>
                     <tbody>
-     <!-- CODIGO FOR
-             -->
+                        <% users.forEach(user => { %>
                         <tr class="tk-showData">
-                            <td>ID</td>
-                            <td>Full Name</td>
-                            <td>Username</td>
-                            <td>Email</td>
+                            <td id="id_<%= user.id %>"><%= user.id %></td>
+                            <td id="usr_<%= user.id %>"><%= user.username %></td>
+                            <td id="admn_<%= user.id %>"><%= user.admin %></td>
                             <td class="d-flex justify-content-end">
-                                <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editUser">Edit</button>
+                                <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editUser" onclick="edit(<%= user.id %>)">Edit</button>
                                 <button class="btn tk-form-btn mx-3">Delete</button> 
                             </td>
                         </tr>   
-    <!--AQui termina 
-           
-    -->
+                        <% }); %>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-            
+
+    <script>
+        function edit(id) {
+            $('#edt_id').val($('#id_'+id).text());
+            $('#edt_username').val($('#usr_'+id).text());
+            $('#edt_admin').prop('checked', $('#admn_'+id).text() == "true");
+        }
+    </script>      
 <%- include('templates/footer')%>

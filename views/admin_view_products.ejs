@@ -24,25 +24,30 @@
                         <th>Price</th>
                     </thead>
                     <tbody>
-     <!-- CODIGO FOR
-             -->
+                    <% products.forEach(product => { %>
                         <tr class="tk-showData">
-                            <td>ID</td>
-                            <td>Name</td>
-                            <td>Description</td>
-                            <td>Price</td>
+                            <td id="id_<%= product.id %>"><%= product.id %></td>
+                            <td id="name_<%= product.id %>"><%= product.name %></td>
+                            <td id="desc_<%= product.id %>"><%= product.description %></td>
+                            <td id="price_<%= product.id %>"><%= product.price %></td>
                             <td class="d-flex justify-content-end">
-                                <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editProduct">Edit</button>
-                                <button class="btn tk-form-btn mx-3">Delete</button> 
+                                <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editProduct" onclick="edit(<%= product.id %>)">Edit</button>
+                                <a class="btn tk-form-btn mx-3" href="/remove_product/<%= product.id %>">Delete</a> 
                             </td>
                         </tr>   
-    <!--AQui termina 
-           
-    -->
+                    <% }); %>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-            
+
+    <script>
+        function edit(id) {
+            $('#edt_id').val($('#id_'+id).text());
+            $('#edt_name').val($('#name_'+id).text());
+            $('#edt_description').val($('#desc_'+id).text());
+            $('#edt_price').val($('#price_'+id).text());
+        }
+    </script>
 <%- include('templates/footer')%>
