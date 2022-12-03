@@ -11,6 +11,8 @@
         <%- include('templates/modal_addUser')%>
     </div>
     
+    <%- include('templates/modal_editUser')%>
+
     <div class="container mt-3">
         <div class="card tk-card">
             <div class="card-body">
@@ -30,8 +32,8 @@
                             <td>Username</td>
                             <td>Email</td>
                             <td class="d-flex justify-content-end">
-                                <button class="btn tk-form-btn mx-3">Editar</button>
-                                <button class="btn tk-form-btn mx-3">Borrar</button> 
+                                <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editUser">Edit</button>
+                                <button class="btn tk-form-btn mx-3">Delete</button> 
                             </td>
                         </tr>   
     <!--AQui termina 

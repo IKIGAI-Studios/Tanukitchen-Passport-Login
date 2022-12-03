@@ -11,6 +11,8 @@
         <%- include('templates/modal_addProduct')%>
     </div>
     
+    <%- include('templates/modal_editProduct')%>
+
     <div class="container mt-3">
         <div class="card tk-card">
             <div class="card-body">
@@ -30,8 +32,8 @@
                             <td>Description</td>
                             <td>Price</td>
                             <td class="d-flex justify-content-end">
-                                <button class="btn tk-form-btn mx-3">Editar</button>
-                                <button class="btn tk-form-btn mx-3">Borrar</button> 
+                                <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editProduct">Edit</button>
+                                <button class="btn tk-form-btn mx-3">Delete</button> 
                             </td>
                         </tr>   
     <!--AQui termina 
