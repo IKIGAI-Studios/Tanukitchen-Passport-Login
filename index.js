@@ -1,20 +1,40 @@
-const express = require('express');
-const session = require('express-session');
-const passport = require('passport');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const {connection} = require('./utils/connection');
 const routes = require('./routes/routes');
-const gRoutes = require('./routes/gRoutes')
+const routesG = require('./routes/googleRoutes');
+const express = require('express');
+const path = require('path');
+var session = require('express-session');
+var passport = require('passport');
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
+var {Connection} = require('./utils/connection');
 
 require('dotenv').config();
-
 const app = express();
+
+app.use(
+    "/scss", 
+    express.static(path.join(__dirname, 'src/assets/scss'))
+)
+
+app.use(
+    "/js", 
+    express.static(path.join(__dirname, 'src/assets/js'))
+)
+
+app.use(
+    "/img", 
+    express.static(path.join(__dirname, 'src/imgs'))
+)
+
+app.use(
+    "/fonts", 
+    express.static(path.join(__dirname, 'src/fonts'))
+)
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 
-let myStore = new SequelizeStore({
-    db: connection
+var myStore = new SequelizeStore({
+    db: Connection
 });
 
 app.use(session({
@@ -23,18 +43,19 @@ app.use(session({
     saveUninitialized: true,
     store: myStore,
     cookie: {
-        maxAge: 1000*60*60*24
+        maxAge: 1000*60*24
     }
 }));
 
 myStore.sync();
 
-require('./utils/passport');
-require('./utils/passportGoogle');
 app.use(passport.initialize());
 app.use(passport.session());
+require('./utils/passport');
+require('./utils/googlePassport');
 app.use('/', routes);
-app.use('/gAuth', gRoutes);
+app.use('/gAuth', routesG);
+app.use('/web', express.static(path.join(__dirname, '/web')));
 
 PORT = process.env.PORT;
 app.listen(PORT, () => {

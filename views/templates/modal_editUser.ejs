@@ -1,0 +1,37 @@
+
+<!-- Modal -->
+<div class="modal fade" id="modal_editUser" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content  tk-modal">
+        <div class="modal-header">
+          <h5 class="modal-title tk-text">Editing user</h5>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form action="upd_user" method="POST">
+
+            <div class="container">
+                <label class="form-label tk-form-label" for="id">ID</label>
+                <input type="text" name="id" id="edt_id" class="form-control tk-form-input" value="ful neim"/>
+            </div>
+            
+            <div class="container">
+                <label class="form-label tk-form-label" for="username">Username</label>
+                <input type="text" name="username" id="edt_username" class="form-control tk-form-input" value="yuserneim"/>
+            </div>
+            
+            <div class="container">
+                <label class="form-label tk-form-label" for="admin">Admin</label><br>
+                <input type="checkbox" name="admin" id="edt_admin" class="form-check-input"/>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn tk-form-btn" style="background-color: #4B6CB7;" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn tk-form-btn">Done</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
