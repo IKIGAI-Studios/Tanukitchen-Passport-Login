@@ -37,6 +37,20 @@ routes.get('/admin_view_products', isAdmin, (req, res) => {
         res.send(`Error: ${e}`);
     })
 });
+
+routes.get('/basic_view_products', (req, res) => {
+    Product.findAll({
+        where: {
+            active: true
+        }
+    })
+    .then((products) => {
+        products.lenght != 0 ? res.render('basic_view', {products}) : res.send('No existen productos');
+    })
+    .catch((e) => {
+        res.send(`Error: ${e}`);
+    })
+});
                            
 routes.get('/admin_view_users', isAdmin, (req, res) => {
     User.findAll()
@@ -121,7 +135,6 @@ routes.post('/upd_user', (req, res) => {
 
 routes.get('/remove_product/:id', (req, res) => {
     req.body.active = false;
-    console.table(req.body);
     Product.update(req.body, {
         where: {
             id: req.params.id
@@ -135,10 +148,19 @@ routes.get('/remove_product/:id', (req, res) => {
     })
 });
 
-//Agregar remove user
-
-//Agregar add user
-
+routes.get('/remove_user/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(() => {
+        res.redirect('../admin_view_users');
+    })
+    .catch((e) => {
+        console.error(`Error: ${e}`);
+    })
+});
 //Agregar boton de logout
 
 module.exports = routes;

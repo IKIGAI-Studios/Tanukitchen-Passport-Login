@@ -7,11 +7,12 @@
     </div>
 </div>
     
-    <div class="d-flex justify-content-end mx-5">       
-        <%- include('templates/modal_addUser')%>
-    </div>
-    
     <%- include('templates/modal_editUser')%>
+
+    <div class="d-flex justify-content-end mx-5">       
+        <a class="btn tk-form-btn m-4" href="/admin_view">Admin View</a> 
+        <a class="btn tk-form-btn m-4" href="/logout">Logout</a>
+    </div>
 
     <div class="container mt-3">
         <div class="card tk-card">
@@ -30,7 +31,7 @@
                             <td id="admn_<%= user.id %>"><%= user.admin %></td>
                             <td class="d-flex justify-content-end">
                                 <button class="btn tk-form-btn mx-3" data-bs-toggle="modal" data-bs-target="#modal_editUser" onclick="edit(<%= user.id %>)">Edit</button>
-                                <button class="btn tk-form-btn mx-3">Delete</button> 
+                                <a class="btn tk-form-btn mx-3" href="./remove_user/<%= user.id %>">Delete</a> 
                             </td>
                         </tr>   
                         <% }); %>
