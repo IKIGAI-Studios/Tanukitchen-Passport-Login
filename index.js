@@ -1,5 +1,5 @@
 const routes = require('./routes/routes');
-const routesG = require('./routes/googleRoutes');
+const routesG = require('./routes/gRoutes');
 const express = require('express');
 const path = require('path');
 var session = require('express-session');
@@ -52,7 +52,7 @@ myStore.sync();
 app.use(passport.initialize());
 app.use(passport.session());
 require('./utils/passport');
-require('./utils/googlePassport');
+require('./utils/passportGoogle');
 app.use('/', routes);
 app.use('/gAuth', routesG);
 app.use('/web', express.static(path.join(__dirname, '/web')));

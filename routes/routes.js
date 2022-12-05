@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 const passport = require('passport');
 const {User, Product} = require('../utils/connection');
-const {genPassword} = require('../utils/passwordUtils');
+const {genPassword} = require('../utils/password');
 const {isAuth, isAdmin} = require('../utils/auth');
 const product = require('../models/product');
 var abc
